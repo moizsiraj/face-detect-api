@@ -13,6 +13,8 @@ const id = require('./controller/id')
 app.use(bodyParser.json());
 app.use(cors());
 
+process.env.NODE_TLS_UNAUTHORIZED = 0
+
 const db = knex ({
     client: 'pg',
     connection: {
