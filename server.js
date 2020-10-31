@@ -37,8 +37,8 @@ app.post("/imageURL", (req, res) => {image.handleApi(res, req)})
 
 app.get('/profile/:id', (req, res)=>{id.handleId(res, req, db)})
 
-app.listen(3001, ()=>{
-    console.log('running on port 3001')
+app.listen(process.env.PORT, ()=>{
+    console.log(`running on port ${process.env.PORT}`)
 })
 
 //the fucntion that made us cry
