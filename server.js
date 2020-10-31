@@ -33,6 +33,8 @@ app.post('/register',(req, res) => {register.handleRegister(res, req, db, bcrypt
 
 app.put("/image", (req, res) => {image.handleImage(res, req, db)})
 
+app.post("/imageURL", (req, res) => {image.handleApi(res, req)})
+
 app.get('/profile/:id', (req, res)=>{id.handleId(res, req, db)})
 
 app.listen(3001, ()=>{
