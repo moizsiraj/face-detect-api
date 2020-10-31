@@ -1,11 +1,19 @@
 const clarifai = require('clarifai');
 
-const app = new Clarifai.App({
+const app = new clarifai.App({
     apiKey: "d7b607614ea34644a6a42d2f166d843b",
   });
 
   const handleApi = (res, req) => {
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+    console.log(req.body.input)
+    app.models
+    // This part has been updated with the recent Clarifai changed. Used to be:
+    // .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+    .predict(clarifai.FACE_DETECT_MODEL, req.body.input)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => res.status(400).json('unable to work with API'))
   }
   
 
